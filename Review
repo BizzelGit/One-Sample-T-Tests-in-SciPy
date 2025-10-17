@@ -1,0 +1,14 @@
+from scipy.stats import ttest_1samp
+import numpy as np
+import matplotlib.pyplot as plt
+
+daily_prices = np.genfromtxt("daily_prices.csv", delimiter=",")
+
+daily_prices_mean = np.mean(daily_prices)
+print("mean of prices: " + str(daily_prices_mean))
+
+# use ttest_1samp to calculate pval
+tstat, pval = ttest_1samp(daily_prices, 500)
+# print pval
+print(pval)
+
